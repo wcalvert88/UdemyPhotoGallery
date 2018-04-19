@@ -18,7 +18,7 @@ class Database {
     }
 
     public function query($sql) {
-        $result = mysqli_query($connection, $sql);
+        $result = mysqli_query($this->connection, $sql);
 
         return $result;
     }
