@@ -40,7 +40,7 @@ class User {
         // $the_object->last_name = $found_user['last_name'];
 
         foreach ($record as $attribute => $value) {
-            if ($the_object->has_the_attribute($atrribute)) {
+            if ($the_object->has_attribute($atrribute)) {
                 $the_object->$attribute = $value;
             }
         }
@@ -48,7 +48,13 @@ class User {
         return $the_object;
     }
 
+    private function has_attribute($attribute) {
+        $object_properties = get_object_vars($this);
+        return array_key_exists($attribute, $object_properties);
+
+    }
 }
+
 
 
 
