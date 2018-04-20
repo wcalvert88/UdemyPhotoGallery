@@ -13,7 +13,7 @@ class Session {
 
     // this is a getter method it gets a private value and returns it anywhere
     public function is_signed_in() {
-        return $signed_in;
+        return $this->signed_in;
     }
 
 
