@@ -43,7 +43,7 @@ class User {
         // $the_object->last_name = $found_user['last_name'];
 
         foreach ($record as $attribute => $value) {
-            if ($the_object->has_attribute($atrribute)) {
+            if ($the_object->has_attribute($attribute)) {
                 $the_object->$attribute = $value;
             }
         }
