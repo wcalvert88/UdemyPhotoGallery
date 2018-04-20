@@ -1,7 +1,7 @@
 <?php require_once("init.php");
 
 if($session->is_signed_in()){
-    redirect("../index.php");
+    redirect("index.php");
 
 }
 
@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
 
     if($user_found) {
         $session->login($user_found);
-        redirect("../index.php");
+        redirect("index.php");
     } else {
         $message = "Your username or password is incorrect";
     }
