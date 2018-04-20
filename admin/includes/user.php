@@ -39,6 +39,14 @@ class User {
         global $database;
         $username = $database->escape($username);
         $password = $database->escape($password);
+
+        $sql = "SELECT * FROM users WHERE ";
+        $sql .= "username = '{$username}' ";
+        $sql .= "AND password = '{$password}' ";
+        $sql .= "LIMIT 1 ";
+        $result_array = self::find_this_query($sql);
+
+        return !empty($result_array) ? array_shift($result_array) : false;
     }
 
     public static function instantiation($record) {
