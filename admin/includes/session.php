@@ -22,7 +22,12 @@ class Session {
             $this->user_id = $_SESSION['user_id'] = $user->id;
             $this->signed_in = true;
         }
+    }
 
+    public function logout($user) {
+        unset($_SESSION['user_id']);
+        unset($this->user_id);
+        $this->signed_in = false;
     }
 
     private function check_login() {
