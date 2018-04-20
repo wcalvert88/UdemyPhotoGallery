@@ -2,14 +2,28 @@
 
 class Session {
 
-    private $signed_in;
+    private $signed_in = false;
     public $user_id;
 
     function __construct() {
         session_start();
+        $this->check_login();
 
     }
 
+    // this is a getter method it gets a private value and returns it anywhere
+    public function is_signed_in() {
+        return $signed_in;
+    }
+
+
+    public function login($user) {
+        if($user) {
+            $this->user_id = $_SESSION['user_id'] = $user->id;
+            $this->signed_in = true;
+        }
+
+    }
 
     private function check_login() {
         if(isset($_SESSION['user_id'])) {
