@@ -4,7 +4,7 @@ if($session->is_signed_in()){
     redirect("index.php");
 
 }
-$message = "";
+
 if(isset($_POST['submit'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -29,7 +29,7 @@ if(isset($_POST['submit'])) {
 
 <div class="col-md-4 col-md-offset-3">
 
-    <h4 class="bg-danger"><?php echo $message; ?></h4>
+    <h4 class="bg-danger"><?php echo isset($the_message) ? $the_message : null; ?></h4>
         
     <form id="login-id" action="" method="post">
         
