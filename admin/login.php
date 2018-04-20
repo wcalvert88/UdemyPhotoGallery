@@ -20,6 +20,7 @@ if(isset($_POST['submit'])) {
         $message = "Your username or password is incorrect";
     }
 } else {
+    $message = "";
     $username = "";
     $password = "";
 }
@@ -29,7 +30,7 @@ if(isset($_POST['submit'])) {
 
 <div class="col-md-4 col-md-offset-3">
 
-    <h4 class="bg-danger"><?php echo isset($the_message) ? $the_message : null; ?></h4>
+    <h4 class="bg-danger"><?php echo isset($message) ? $message : null; ?></h4>
         
     <form id="login-id" action="" method="post">
         
