@@ -20,11 +20,7 @@ class User {
         global $database;
         $result_array = self::find_this_query("SELECT * FROM users WHERE id = $id LIMIT 1");
         return !empty($result_array) ? array_shift($result_array) : false;
-        // if(!empty($result_array)) {
-        //     $first_item = array_shift($result_array);
-        // } else {
-        //     return false;
-        // }
+
         return $found_user;
 
     }
@@ -37,6 +33,12 @@ class User {
             $object_array[] = self::instantiation($row);
         }
         return $object_array;
+    }
+
+    public static function verify_user() {
+        global $database;
+        $username = $database->escape($username);
+        $password = $database->escape($password);
     }
 
     public static function instantiation($record) {
