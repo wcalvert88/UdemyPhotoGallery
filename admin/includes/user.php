@@ -20,9 +20,6 @@ class User {
         global $database;
         $result_array = self::find_this_query("SELECT * FROM users WHERE id = $id LIMIT 1");
         return !empty($result_array) ? array_shift($result_array) : false;
-
-        return $found_user;
-
     }
 
     public static function find_this_query($sql) {
