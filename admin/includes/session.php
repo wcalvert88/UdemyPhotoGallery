@@ -4,11 +4,12 @@ class Session {
 
     private $signed_in = false;
     public $user_id;
+    public $message;
 
     function __construct() {
         session_start();
         $this->check_login();
-
+        $this->check_message();
     }
 
     // this is a getter method it gets a private value and returns it anywhere
@@ -40,7 +41,22 @@ class Session {
         }
     }
 
+    public function message($msg="") {
+        if(!empty($msg)) {
+            $_SESSION['message'] = $msg;
+        } else {
+            return $this->message;
+        }
+    }
 
+    private function check_message() {
+        if(isset($_SESSION['message'])) {
+            $this->message = $_SESSION['message'];
+            unset($_SESSION['message']);
+        } else {
+            $this->message = "";
+        }
+    }
 }
 
 $session = new Session();
