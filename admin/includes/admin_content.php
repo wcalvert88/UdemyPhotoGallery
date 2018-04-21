@@ -11,7 +11,7 @@
             <?php 
 
             // $user = new User();
-            // $user->username = "SuaveTheThird";
+            // $user->username = "SuaveTheThird12";
             // $user->password = "password";
             // $user->first_name = "Rick";
             // $user->last_name = "Suavo";
@@ -19,10 +19,10 @@
             // $user->create();
 
             $user = User::find_user_by_id(11);
-            $user->username = "Williamson";
-            $user->password = "Williamson2";
-            $user->first_name = "Williamson3";
-            $user->last_name = "Williamson4";
+            $user->username = "Williamson2";
+            $user->password = "Williamson32";
+            $user->first_name = "Williamson43";
+            $user->last_name = "Williamson45";
 
             $user->update();
 
