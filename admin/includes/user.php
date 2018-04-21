@@ -2,6 +2,7 @@
 
 class User {
 
+    protected static $db_table = "users";
     public $id;
     public $username;
     public $password;
@@ -77,7 +78,7 @@ class User {
     public function create() {
         global $database;
 
-        $sql = "INSERT INTO users (username, password, first_name, last_name) VALUES ('";
+        $sql = "INSERT INTO " . self::$db_table . " (username, password, first_name, last_name) VALUES ('";
         $sql .= $database->escape($this->username) . "', '";
         $sql .= $database->escape($this->password) . "', '";
         $sql .= $database->escape($this->first_name) . "', '";
@@ -94,7 +95,7 @@ class User {
 
     public function update(){
         global $database;
-        $sql = "UPDATE users SET ";
+        $sql = "UPDATE " . self::$db_table . " SET ";
         $sql .= "username= '" . $database->escape($this->username) . "', ";
         $sql .= "password= '" . $database->escape($this->password) . "', ";
         $sql .= "first_name= '" . $database->escape($this->first_name) . "', ";
@@ -109,7 +110,7 @@ class User {
 
     public function delete() {
         global $database;
-        $sql = "DELETE FROM users WHERE id= " . $database->escape($this->id);
+        $sql = "DELETE FROM " . self::$db_table . " WHERE id= " . $database->escape($this->id);
         $sql .= " LIMIT 1";
 
         $database->query($sql);
