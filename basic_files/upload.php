@@ -1,7 +1,8 @@
 <?php 
+echo "<pre>";
+print_r($_FILES['file_upload']);
 
-
-
+echo "<pre>";
 
 ?>
 
