@@ -1,11 +1,11 @@
 <?php 
 
 if(isset($_POST['submit'])) {
-echo "<pre>";
+// echo "<pre>";
 
-print_r($_FILES['file_upload']);
+// print_r($_FILES['file_upload']);
 
-echo "<pre>";
+// echo "<pre>";
 
 $upload_errors = array(
 
@@ -19,9 +19,24 @@ $upload_errors = array(
     UPLOAD_ERR_EXTENSION => "A PHP extension stopped the file upload."
 );
 
-$error = $_FILES['file_upload']['error'];
+$tmp_name = $_FILES['file_upload']['tmp_name'];
 
-$message = $upload_errors[$error];
+$filename = $_FILES['file_upload']['name'];
+$directory = "uploads";
+
+if(move_uploaded_file($tmp_name, $directory . "/" . $filename)) {
+    $message = "File uploaded successfully";
+} else {
+
+    $error = $_FILES['file_upload']['error'];
+
+    $message = $upload_errors[$error];
+
+}
+
+
+
+
 }
 ?>
 
