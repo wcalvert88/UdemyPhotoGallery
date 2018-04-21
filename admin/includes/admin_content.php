@@ -10,18 +10,21 @@
             
             <?php 
 
-            $user = new User();
-            $user->username = "SuaveTheThird";
-            $user->password = "password";
-            $user->first_name = "Rick";
-            $user->last_name = "Suavo";
+            // $user = new User();
+            // $user->username = "SuaveTheThird";
+            // $user->password = "password";
+            // $user->first_name = "Rick";
+            // $user->last_name = "Suavo";
         
-            $user->create();
+            // $user->create();
 
-            // $user = User::find_user_by_id(9);
-            // $user->username = "Williamson";
+            $user = User::find_user_by_id(11);
+            $user->username = "Williamson";
+            $user->password = "Williamson2";
+            $user->first_name = "Williamson3";
+            $user->last_name = "Williamson4";
 
-            // $user->update();
+            $user->update();
 
             // $user = User::find_user_by_id(3);
             // $user->delete();
