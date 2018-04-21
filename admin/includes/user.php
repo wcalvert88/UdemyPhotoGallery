@@ -108,6 +108,8 @@ class User {
         $sql .= " LIMIT 1";
 
         $database->query($sql);
+
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     } // End Delete Method
 
 

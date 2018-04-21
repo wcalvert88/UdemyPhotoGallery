@@ -23,8 +23,8 @@
 
             // $user->update();
 
-            $user = User::find_user_by_id(3);
-            $user->delete();
+            // $user = User::find_user_by_id(3);
+            // $user->delete();
             ?>
             <ol class="breadcrumb">
                 <li>
