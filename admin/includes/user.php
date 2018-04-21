@@ -70,6 +70,11 @@ class User {
 
     } // End has_attribute method
 
+    protected function properties() {
+        return get_object_vars($this);
+    }
+
+
     public function save() {
         return isset($this->id) ? $this->update() : $this->create();
 
@@ -78,7 +83,9 @@ class User {
     public function create() {
         global $database;
 
-        $sql = "INSERT INTO " . self::$db_table . " (username, password, first_name, last_name) VALUES ('";
+        $properties = $this->properties();
+
+        $sql = "INSERT INTO " . self::$db_table . " (" . implode(",", array_keys($properties)) . ")  VALUES ('";
         $sql .= $database->escape($this->username) . "', '";
         $sql .= $database->escape($this->password) . "', '";
         $sql .= $database->escape($this->first_name) . "', '";
