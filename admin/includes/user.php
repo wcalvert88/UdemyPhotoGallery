@@ -77,6 +77,14 @@ class User {
         $sql .= $database->escape($this->password) . "', '";
         $sql .= $database->escape($this->first_name) . "', '";
         $sql .= $database->escape($this->last_name) . "')";
+
+        if($database->query($sql)) {
+            $this->id = $database->insert_id();
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 } // End of Class User
 
