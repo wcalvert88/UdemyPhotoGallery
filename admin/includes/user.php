@@ -68,7 +68,17 @@ class User {
         return array_key_exists($attribute, $object_properties);
 
     }
-}
+
+    public function create() {
+        global $database;
+
+        $sql = "INSERT INTO users (username, password, first_name, last_name) VALUES ('";
+        $sql .= $database->escape($this->username) . "', '";
+        $sql .= $database->escape($this->password) . "', '";
+        $sql .= $database->escape($this->first_name) . "', '";
+        $sql .= $database->escape($this->last_name) . "')";
+    }
+} // End of Class User
 
 
 
