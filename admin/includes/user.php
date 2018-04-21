@@ -85,11 +85,7 @@ class User {
 
         $properties = $this->properties();
 
-        $sql = "INSERT INTO " . self::$db_table . " (" . implode(",", array_keys($properties)) . ")  VALUES ('";
-        $sql .= $database->escape($this->username) . "', '";
-        $sql .= $database->escape($this->password) . "', '";
-        $sql .= $database->escape($this->first_name) . "', '";
-        $sql .= $database->escape($this->last_name) . "')";
+        $sql = "INSERT INTO " . self::$db_table . " (" . implode(",", array_keys($properties)) . ")  VALUES ('" . implode("','", array_values($properties)) . "')";
 
         if($database->query($sql)) {
             $this->id = $database->insert_id();
