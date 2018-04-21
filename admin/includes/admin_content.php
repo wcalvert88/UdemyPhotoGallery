@@ -25,6 +25,15 @@
 
             // $user = User::find_user_by_id(3);
             // $user->delete();
+            
+            // $user = User::find_user_by_id(8);
+            // $user->password = "justPassword";
+            // $user->save();
+
+            // $user = new User();
+            // $user->username = "WHATEVER_2000";
+            // $user->save();
+            
             ?>
             <ol class="breadcrumb">
                 <li>

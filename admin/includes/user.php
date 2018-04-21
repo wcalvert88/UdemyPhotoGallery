@@ -14,13 +14,13 @@ class User {
         // return $result_set;
 
         return self::find_this_query("SELECT * FROM users");
-    }
+    } // End find all users method
 
     public static function find_user_by_id($id) {
         global $database;
         $result_array = self::find_this_query("SELECT * FROM users WHERE id = $id LIMIT 1");
         return !empty($result_array) ? array_shift($result_array) : false;
-    }
+    } // End find user by id method
 
     public static function find_this_query($sql) {
         global $database;
@@ -30,7 +30,7 @@ class User {
             $object_array[] = self::instantiation($row);
         }
         return $object_array;
-    }
+    } // End find this query method
 
     public static function verify_user($username, $password) {
         global $database;
@@ -44,7 +44,7 @@ class User {
         $result_array = self::find_this_query($sql);
 
         return !empty($result_array) ? array_shift($result_array) : false;
-    }
+    } // End verify_user method
 
     public static function instantiation($record) {
         $the_object = new self;
@@ -61,11 +61,16 @@ class User {
         }
 
         return $the_object;
-    }
+    } // End instantiation method
 
     private function has_attribute($attribute) {
         $object_properties = get_object_vars($this);
         return array_key_exists($attribute, $object_properties);
+
+    } // End has_attribute method
+
+    public function save() {
+        return isset($this->id) ? $this->update() : $this->create();
 
     }
 
