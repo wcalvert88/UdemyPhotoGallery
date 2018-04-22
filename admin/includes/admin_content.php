@@ -46,6 +46,20 @@
             //     echo $user->username;
             // }
             
+            // $photos = Photo::find_all();
+
+            // foreach ($photos as $photo) {
+            //     echo $photo->title;
+            // }
+
+
+            $photos = new Photo();
+            $photos->title = "Just some text";
+            $photos->size = 20;
+        
+            $photos->create();
+
+
             ?>
             <ol class="breadcrumb">
                 <li>
