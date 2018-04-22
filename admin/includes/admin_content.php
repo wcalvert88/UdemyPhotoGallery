@@ -18,13 +18,13 @@
         
             // $user->create();
 
-            $user = User::find_user_by_id(11);
-            $user->username = "Williamson2";
-            $user->password = "Williamson32";
-            $user->first_name = "Williamson43";
-            $user->last_name = "Williamson45";
+            // $user = User::find_user_by_id(11);
+            // $user->username = "Williamson2";
+            // $user->password = "Williamson32";
+            // $user->first_name = "Williamson43";
+            // $user->last_name = "Williamson45";
 
-            $user->update();
+            // $user->update();
 
             // $user = User::find_user_by_id(3);
             // $user->delete();
@@ -39,6 +39,12 @@
 
             // $user = User::find_user_by_id(8);
             // $user->delete();
+
+            $users = User::find_all();
+
+            foreach ($users as $user) {
+                echo $user->username;
+            }
             
             ?>
             <ol class="breadcrumb">

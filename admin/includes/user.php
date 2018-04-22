@@ -16,11 +16,11 @@ class User extends Db_object {
         $username = $database->escape($username);
         $password = $database->escape($password);
 
-        $sql = "SELECT * FROM " . self::$db_table . " WHERE ";
+        $sql = "SELECT * FROM " . static::$db_table . " WHERE ";
         $sql .= "username = '{$username}' ";
         $sql .= "AND password = '{$password}' ";
         $sql .= "LIMIT 1 ";
-        $result_array = self::find_this_query($sql);
+        $result_array = static::find_this_query($sql);
 
         return !empty($result_array) ? array_shift($result_array) : false;
     } // End verify_user method
@@ -29,7 +29,7 @@ class User extends Db_object {
     protected function properties() {
         // return get_object_vars($this);
         $properties = array();
-        foreach (self::$db_table_fields as $db_field) {
+        foreach (static::$db_table_fields as $db_field) {
             if(property_exists($this, $db_field)) {
                 $properties[$db_field] = $this->$db_field;
             }
@@ -59,7 +59,7 @@ class User extends Db_object {
 
         $properties = $this->clean_properties();
 
-        $sql = "INSERT INTO " . self::$db_table . " (" . implode(",", array_keys($properties)) . ")  VALUES ('" . implode("','", array_values($properties)) . "')";
+        $sql = "INSERT INTO " . static::$db_table . " (" . implode(",", array_keys($properties)) . ")  VALUES ('" . implode("','", array_values($properties)) . "')";
 
         if($database->query($sql)) {
             $this->id = $database->insert_id();
@@ -78,7 +78,7 @@ class User extends Db_object {
         foreach ($properties as $key => $value) {
             $properties_pairs[] = "{$key}='{$value}'";
         }
-        $sql = "UPDATE " . self::$db_table . " SET ";
+        $sql = "UPDATE " . static::$db_table . " SET ";
         $sql .= implode(", ", $properties_pairs);
         $sql .= " WHERE id= " . $database->escape($this->id);
 
@@ -90,7 +90,7 @@ class User extends Db_object {
 
     public function delete() {
         global $database;
-        $sql = "DELETE FROM " . self::$db_table . " WHERE id= " . $database->escape($this->id);
+        $sql = "DELETE FROM " . static::$db_table . " WHERE id= " . $database->escape($this->id);
         $sql .= " LIMIT 1";
 
         $database->query($sql);
