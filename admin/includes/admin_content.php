@@ -53,13 +53,13 @@
             // }
 
 
-            $photos = new Photo();
-            $photos->title = "Just some text";
-            $photos->size = 20;
+            // $photos = new Photo();
+            // $photos->title = "Just some text";
+            // $photos->size = 20;
         
-            $photos->create();
+            // $photos->create();
 
-
+            echo INCLUDES_PATH;
             ?>
             <ol class="breadcrumb">
                 <li>
