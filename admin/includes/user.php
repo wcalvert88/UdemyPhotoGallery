@@ -10,17 +10,17 @@ class User {
     public $first_name;
     public $last_name;
 
-    public static function find_all_users() {
+    public static function find_all() {
         // global $database;
         // $result_set = $database->query("SELECT * FROM users");
         // return $result_set;
 
-        return self::find_this_query("SELECT * FROM users");
+        return self::find_this_query("SELECT * FROM " . self::$db_table . " ");
     } // End find all users method
 
-    public static function find_user_by_id($id) {
+    public static function find_by_id($id) {
         global $database;
-        $result_array = self::find_this_query("SELECT * FROM users WHERE id = $id LIMIT 1");
+        $result_array = self::find_this_query("SELECT * FROM " . self::$db_table . " WHERE id = $id LIMIT 1");
         return !empty($result_array) ? array_shift($result_array) : false;
     } // End find user by id method
 
@@ -34,12 +34,12 @@ class User {
         return $object_array;
     } // End find this query method
 
-    public static function verify_user($username, $password) {
+    public static function verify($username, $password) {
         global $database;
         $username = $database->escape($username);
         $password = $database->escape($password);
 
-        $sql = "SELECT * FROM users WHERE ";
+        $sql = "SELECT * FROM " . self::$db_table . " WHERE ";
         $sql .= "username = '{$username}' ";
         $sql .= "AND password = '{$password}' ";
         $sql .= "LIMIT 1 ";
