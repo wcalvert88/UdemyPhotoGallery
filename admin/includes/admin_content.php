@@ -34,17 +34,17 @@
             // $user->save();
 
             // $user = new User();
-            // $user->username = "SUAVE";
+            // $user->username = "NEW_USER";
             // $user->save();
 
             // $user = User::find_user_by_id(8);
             // $user->delete();
 
-            $users = User::find_all();
+            // $users = User::find_all();
 
-            foreach ($users as $user) {
-                echo $user->username;
-            }
+            // foreach ($users as $user) {
+            //     echo $user->username;
+            // }
             
             ?>
             <ol class="breadcrumb">
