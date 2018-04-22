@@ -1,6 +1,6 @@
 <?php 
 
-class User {
+class User extends Db_object {
 
     protected static $db_table = "users";
     protected static $db_table_fields = array('username', 'password', 'first_name', 'last_name');
@@ -10,29 +10,6 @@ class User {
     public $first_name;
     public $last_name;
 
-    public static function find_all() {
-        // global $database;
-        // $result_set = $database->query("SELECT * FROM users");
-        // return $result_set;
-
-        return self::find_this_query("SELECT * FROM " . self::$db_table . " ");
-    } // End find all users method
-
-    public static function find_by_id($id) {
-        global $database;
-        $result_array = self::find_this_query("SELECT * FROM " . self::$db_table . " WHERE id = $id LIMIT 1");
-        return !empty($result_array) ? array_shift($result_array) : false;
-    } // End find user by id method
-
-    public static function find_this_query($sql) {
-        global $database;
-        $result_set = $database->query($sql);
-        $object_array = array();
-        while ($row = mysqli_fetch_array($result_set)) {
-            $object_array[] = self::instantiation($row);
-        }
-        return $object_array;
-    } // End find this query method
 
     public static function verify($username, $password) {
         global $database;
@@ -48,28 +25,6 @@ class User {
         return !empty($result_array) ? array_shift($result_array) : false;
     } // End verify_user method
 
-    public static function instantiation($record) {
-        $the_object = new self;
-        // $the_object->id = $found_user['id'];
-        // $the_object->username = $found_user['username'];
-        // $the_object->password = $found_user['password'];
-        // $the_object->first_name = $found_user['first_name'];
-        // $the_object->last_name = $found_user['last_name'];
-
-        foreach ($record as $attribute => $value) {
-            if ($the_object->has_attribute($attribute)) {
-                $the_object->$attribute = $value;
-            }
-        }
-
-        return $the_object;
-    } // End instantiation method
-
-    private function has_attribute($attribute) {
-        $object_properties = get_object_vars($this);
-        return array_key_exists($attribute, $object_properties);
-
-    } // End has_attribute method
 
     protected function properties() {
         // return get_object_vars($this);
