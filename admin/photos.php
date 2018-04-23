@@ -51,9 +51,9 @@ $photos = Photo::find_all();
                             <td>
                                 <img src="<?php echo $photo->picture_path(); ?>" alt="" width="200px">
                                 <div class="pictures_link">
-                                    <a href="delete_photo.php/?id=<?php echo $photo->photo_id;?>">Delete</a>
-                                    <a href="edit_photo.php/?id=<?php echo $photo->photo_id; ?>">Edit</a>
-                                    <a href="view_photo.php/?id=<?php echo $photo->photo_id; ?>">View</a>
+                                    <a href="delete_photo.php/?photo_id=<?php echo $photo->photo_id;?>">Delete</a>
+                                    <a href="edit_photo.php/?photo_id=<?php echo $photo->photo_id; ?>">Edit</a>
+                                    <a href="view_photo.php/?photo_id=<?php echo $photo->photo_id; ?>">View</a>
                                 </div>
                             </td>
                             <td><?php echo $photo->photo_id; ?></td>
