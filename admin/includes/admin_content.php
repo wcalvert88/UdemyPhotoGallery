@@ -13,8 +13,8 @@
             // $user = User::find_by_id(11);
             // echo $user->username;
 
-            $photo = Photo::find_by_id(1);
-            echo $photo->filename;
+            // $photo = Photo::find_by_id(1);
+            // echo $photo->filename;
             // $user = new User();
             // $user->username = "SuaveTheThird12";
             // $user->password = "password";
@@ -57,7 +57,12 @@
             //     echo $photo->title;
             // }
 
-
+            // $photos = new Photo();
+            // $photos->title = "Just some text";
+            // $photos->size = 20;
+            // $photos->picture_path("C:\MAMP\htdocs\UdemyPhotoGalleryDownload\car_pictures\_large_image_1.jpg");
+            // $photos->save();
+            // $photos->create();
             // $photos = new Photo();
             // $photos->title = "Just some text";
             // $photos->size = 20;
