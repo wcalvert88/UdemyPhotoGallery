@@ -10,6 +10,11 @@
             
             <?php 
 
+            // $user = User::find_by_id(11);
+            // echo $user->username;
+
+            $photo = Photo::find_by_id(1);
+            echo $photo->filename;
             // $user = new User();
             // $user->username = "SuaveTheThird12";
             // $user->password = "password";
@@ -59,7 +64,7 @@
         
             // $photos->create();
 
-            echo INCLUDES_PATH;
+            // echo INCLUDES_PATH;
             ?>
             <ol class="breadcrumb">
                 <li>
