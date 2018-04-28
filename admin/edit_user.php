@@ -3,9 +3,13 @@ if(!$session->is_signed_in()) {
     redirect("login.php");
 }
 
-$user = new User();
+if(empty($_GET['id'])) {
+    redirect("users.php");
+}
 
-if(isset($_POST['create'])) {
+$user = User::find_by_id($_GET['id']);
+
+if(isset($_POST['update'])) {
 
     if($user) {
         $user->username = $_POST['username'];
@@ -73,7 +77,7 @@ if(isset($_POST['create'])) {
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" name="create" class="btn btn-primary">
+                        <input type="submit" name="update" class="btn btn-primary">
                     </div>
 
                 </div>
