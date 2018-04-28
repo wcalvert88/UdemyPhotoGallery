@@ -3,10 +3,16 @@ if(!$session->is_signed_in()) {
     redirect("login.php");
 }
 
+$user = new User();
 
-//     $user = user::find_by_id($_GET['id']);
 if(isset($_POST['create'])) {
 
+    if($user) {
+        $user->username = $_POST['username'];
+        $user->first_name = $_POST['first_name'];
+        $user->last_name = $_POST['last_name'];
+        $user->password = $_POST['password'];
+    }
     // if($user) {
     //     $user->title = $_POST['title'];
     //     $user->caption = $_POST['caption'];
@@ -48,6 +54,10 @@ if(isset($_POST['create'])) {
             </h1>
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <input type="file" name="user_image">
+                    </div>
+
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" name="username" class="form-control">
