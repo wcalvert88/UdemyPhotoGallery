@@ -12,7 +12,8 @@ class User extends Db_object {
     public $user_image;
     public $upload_directory = "images";
     public $image_placeholder = "http://placehold.it/400x400&text=image";
-
+    public $errors = array();
+ 
     public function set_file($file) {
 
         if(empty($file) || !$file || !is_array($file)) {
