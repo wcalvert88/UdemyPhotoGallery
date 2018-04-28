@@ -12,14 +12,14 @@ if(isset($_POST['create'])) {
         $user->first_name = $_POST['first_name'];
         $user->last_name = $_POST['last_name'];
         $user->password = $_POST['password'];
+        $user->set_file($_FILES['user_image']);
+        $user->save_user_and_image();
     }
     // if($user) {
     //     $user->title = $_POST['title'];
     //     $user->caption = $_POST['caption'];
     //     $user->alternate_text = $_POST['alternate_text'];
     //     $user->description = $_POST['description'];
-
-    //     $user->save();
     // }
 }
     // $users = user::find_all();
