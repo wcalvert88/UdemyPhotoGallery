@@ -18,8 +18,17 @@ if(isset($_POST['submit'])) {
     if($new_comment && $new_comment->save()) {
         
         redirrect("photo.php?id={$photo->id}");
+    } else {
+        $message = "There was some problems saving this comment";
     }
+} else {
+    $author = "";
+    $body = "";
+
 }
+
+Comment::find_comments($photo->id);
+
 
 ?>
 
