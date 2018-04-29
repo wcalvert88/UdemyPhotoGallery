@@ -14,12 +14,22 @@ class Commment extends Db_object {
             $comment = new Comment();
             $comment->photo_id = (int)$photo_id;
             $comment->author = $author;
-            $comment-body = $body;
+            $comment->body = $body;
 
             return $comment;
         } else {
             return false;
         }
+    }
+
+    public static function find_comments($photo_id=0) {
+        global $connection; // global $database;
+
+        $sql = "SELECT * FROM " . self::$db_table;
+        $sql .= " WHERE photo_id = " . $connection->escape($photo_id);
+        $sql .= ".ORDER BY photo_id ASC";
+
+        return self::find_by_query($sql);
     }
  
 
