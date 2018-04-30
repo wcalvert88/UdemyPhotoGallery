@@ -6,6 +6,11 @@ if(!$session->is_signed_in()) {
 if(empty($_GET['id'])) {
     redirect("photos.php");
 }
+
+$comments = Comment::find_comments($_GET['id']);
+
+
+
 ?>
 
     <!-- Navigation -->
