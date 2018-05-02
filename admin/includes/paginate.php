@@ -8,8 +8,19 @@ class Paginate {
         $this->current_page = (int)$page;
         $this->items_per_page = (int)$items_per_page;
         $this->items_total_count = (int)$items_total_count;
-    } // End __construct method
+    } // End __construct Method
 
+    public function next() {
+        return $this->current_page + 1;
+    } // End Next Method
+
+    public function previous() {
+        return $this->current_page - 1;
+    } // End Previous Method
+
+    public function page_total() {
+        return ceil($this->items_total_count / $this->items_per_page);
+    }
 } // End Class Paginate
 
 
