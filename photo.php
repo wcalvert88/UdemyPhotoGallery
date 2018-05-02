@@ -32,6 +32,7 @@ require_once("includes/header.php");
 
 
             <!-- Blog Post Content Column -->
+            <div class="row">
             <div class="col-lg-12">
 
                 <!-- Blog Post -->
@@ -128,5 +129,5 @@ require_once("includes/header.php");
 
  <!-- </div> -->
 <!-- /.row -->
-
+</div>
 <?php include("includes/footer.php"); ?>
