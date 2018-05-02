@@ -2,3 +2,15 @@
     width: 200px;
     height: 150px !important;
 }
+
+
+/******* HOME PAGE PAGINATION *****/
+.pager .active a {
+    background-color: #000;
+    color: #fff;
+}
+
+.pager .active a:hover {
+    background-color: #555;
+    color: #fff;
+}
