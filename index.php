@@ -1,6 +1,14 @@
 <?php include("includes/header.php"); 
-$photos = Photo::find_all();
 
+$page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+
+$items_per_page = 4;
+
+$items_total_count = Photo::count_all();
+
+
+
+$photos = Photo::find_all();
 ?>
 
 
