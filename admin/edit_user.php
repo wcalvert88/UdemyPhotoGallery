@@ -65,7 +65,7 @@ include ("includes/photo_library_modal.php");
         <div class="col-lg-12">
             <h1 class="page-header">
                 Edit User
-                <small>Subheading</small>
+                <small><?php echo $user->username; ?></small>
             </h1>
             <div class="col-md-6 user_image_box">
                 <a href="#" data-toggle="modal" data-target="#photo-library">

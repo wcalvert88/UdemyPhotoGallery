@@ -5,6 +5,8 @@ $(document).ready(function() {
     var image_src;
     var image_src_split;
     var image_name;
+    var photo_id;
+
     $(".modal_thumbnails").click(function () {
         $("#set_user_image").prop('disabled', false);
  
@@ -16,6 +18,19 @@ $(document).ready(function() {
     image_src = $(this).prop("src");
     image_src_split = image_src.split("/");
     image_name = image_src_split[image_src_split.length - 1];
+
+    photo_id = $(this).attr("data");
+
+    $.ajax({
+        url: "includes/ajax_code.php",
+        data: {photo_id: photo_id},
+        type: "POST",
+        success: function(data) {
+            if (!data.error) {
+                $("#modal_sidebar").html(data);
+            }
+        }
+    })
     });
 
     $("#set_user_image").click(function() {
