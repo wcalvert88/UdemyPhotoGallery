@@ -75,8 +75,13 @@ class User extends Db_object {
         return !empty($result_array) ? array_shift($result_array) : false;
     } // End verify_user method
 
+    public function ajax_save_user_image($user_image, $user_id) {
+        $this->user_image = $user_image;
+        $this->id = $user_id;
+        $this->save();
 
 
+    } // End ajax_save_user_image method
 
 
 } // End of Class User
