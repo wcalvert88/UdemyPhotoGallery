@@ -45,11 +45,11 @@ class Photo extends Db_object {
             $this->type = $file['type'];
             $this->size = $file['size'];
         }
-    }
+    } // End set_file method
 
     public function picture_path() {
         return $this->upload_directory . DS . $this->filename;
-    }
+    } // End picture_path method
 
     public function save() {
         if($this->id) {
@@ -94,6 +94,22 @@ class Photo extends Db_object {
         } else {
             return false;
         }
-    }
-}
+    } // End delete_photo method
+
+    public function comments() {
+        return Comment::find_the_comments($this->id);
+    } // End comments method
+
+    public static function display_sidebar_data($photo_id) {
+        $photo = Photo::find_by_id($photo_id);
+
+        $output = "<a class='thumbnail' href='#'><img width='100' src='{$photo->picture_path()}'></a>";
+        $output .= "<p>{$photo->filename}</p>";
+        $output .= "<p>{$photo->type}</p>";
+        $output .= "<p>{$photo->size}</p>";
+
+        echo $output;
+    } // End display_sidebar_data method
+
+} // End Photo Class
 ?>
