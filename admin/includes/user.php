@@ -91,6 +91,15 @@ class User extends Db_object {
         echo $this->image_path_and_placeholder();
     } // End ajax_save_user_image method
 
+    public static function find_username($user_id) {
+        global $database;
+        $sql = "SELECT * FROM " . self::$db_table . " WHERE id = $user_id ";
+        $get_user = $database->query($sql);
+
+        $row = mysqli_fetch_assoc($get_user);
+
+        return $row['username'];
+    }
 
 } // End of Class User
 
