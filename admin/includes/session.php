@@ -11,6 +11,7 @@ class Session {
         session_start();
         $this->visitor_count();
         $this->check_login();
+        $this->check_message();
     } // End __construct method
 
     public function visitor_count() {

@@ -101,6 +101,7 @@ class User extends Db_object {
         return $row['username'];
     }
 
+
 } // End of Class User
 
 
