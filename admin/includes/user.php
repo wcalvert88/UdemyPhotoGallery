@@ -99,7 +99,18 @@ class User extends Db_object {
         $row = mysqli_fetch_assoc($get_user);
 
         return $row['username'];
-    }
+    } // End find_username method
+
+    public function delete_photo() {
+
+        if($this->delete()) {
+            $target_path = SITE_ROOT.DS. 'admin' . DS . $this->upload_directory . $this->user_image;
+
+            return unlink($target_path) ? true : false;
+        } else {
+            return false;
+        }
+    } // End delete_photo method
 
 
 } // End of Class User
