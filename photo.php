@@ -10,8 +10,8 @@ $photo = Photo::find_by_id($_GET['id']);
 if(isset($_POST['submit'])) {
     $author = trim($_POST['author']);
     $body = trim($_POST['body']);
-    // $timestamp = date("Y/m/d");
-    $new_comment = Comment::create_comment($photo->id, $author, $body);
+    $timestamp = date("Y/m/d H:i:s");
+    $new_comment = Comment::create_comment($photo->id, $author, $body, $timestamp);
 
     if($new_comment && $new_comment->save()) {
         

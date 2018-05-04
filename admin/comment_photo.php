@@ -38,8 +38,8 @@ $comments = Comment::find_comments($_GET['id']);
         <div class="col-lg-12">
             <h1 class="page-header">
                 Comments
-
             </h1>
+            <p class="bg-success"><?php echo $session->message; ?></p>
             <div class="col-md-12">
                 <table class="table table-hover">
                     <thead>
