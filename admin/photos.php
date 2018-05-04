@@ -3,7 +3,8 @@ if(!$session->is_signed_in()) {
     redirect("login.php");
 }
 
-$photos = Photo::find_all();
+// $photos = Photo::find_all();
+$photos = User::find_by_id($_SESSION['user_id'])->photos();
 ?>
 
     <!-- Navigation -->

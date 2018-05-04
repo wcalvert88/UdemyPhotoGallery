@@ -112,6 +112,9 @@ class User extends Db_object {
         }
     } // End delete_photo method
 
+    public function photos() {
+        return Photo::find_by_query("SELECT * FROM photos WHERE user_id = " . $this->id);
+    }
 
 } // End of Class User
 
