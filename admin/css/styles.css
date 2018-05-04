@@ -87,3 +87,8 @@ padding: 10px;
   
   }
   
+
+  /******* Login Page *******/
+  #login-id label {
+    color: #fff;
+  }
