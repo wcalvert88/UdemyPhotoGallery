@@ -4,18 +4,28 @@ if(!$session->is_signed_in()) {
 }
 
 $message = "";
-if(isset($_POST['submit'])) {
-    $photo = new Photo();
-    $photo->title = $_POST['title'];
-    $photo->set_file($_FILES['file_upload']);
+// if(isset($_POST['submit'])) {
+//     $photo = new Photo();
+//     $photo->title = $_POST['title'];
+//     $photo->set_file($_FILES['file_upload']);
 
-    if ($photo->save()) {
-        $message = "Photo Uploaded Successfully";
-    } else {
-        $message = join("<br>", $photo->errors);
+//     if ($photo->save()) {
+//         $message = "Photo Uploaded Successfully";
+//     } else {
+//         $message = join("<br>", $photo->errors);
+//     }
+// }
+if(isset($_FILES['file'])) {
+        $photo = new Photo();
+        $photo->title = $_POST['title'];
+        $photo->set_file($_FILES['file']);
+    
+        if ($photo->save()) {
+            $message = "Photo Uploaded Successfully";
+        } else {
+            $message = join("<br>", $photo->errors);
+        }
     }
-}
-
 ?>
 
     <!-- Navigation -->
@@ -52,7 +62,7 @@ if(isset($_POST['submit'])) {
                             <input type="text" name="title" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="file" name="file_upload">
+                            <input type="file" name="file">
                         </div>
                         <input type="submit" name="submit">
                     
@@ -62,7 +72,7 @@ if(isset($_POST['submit'])) {
             </div><!-- End of Row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <form action="upload" class="dropzone"></form>
+                    <form action="upload.php" class="dropzone"></form>
                 
                 </div>
             
